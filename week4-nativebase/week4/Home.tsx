@@ -2,15 +2,19 @@ import React, { setState, Component } from 'react';
 import { Text, Heading, FlatList, Center, VStack, HStack, Input, Button, Slider, Checkbox, Divider } from 'native-base'
 
 interface HomeState {
-    todo: list,
-    newItemName?: string,
+    todo: List<string>
+    newItemName? : string
 }
 
 class Home extends Component {
 
-    state: HomeState = {
-        todo: ["Week 2 Assignment", "Week 3 Assignment", "Stay Hydrated"],    // The list
-        newItemName: "",    // The input cache
+    private state: HomeState
+
+    UNSAFE_componentWillMount() {
+        this.state = {
+            todo: ["Week 2 Assignment", "Week 3 Assignment", "Stay Hydrated"],
+            newItemName: ""
+        }
     }
 
     render() {
